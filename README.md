@@ -18,7 +18,7 @@ El proyecto está estructurado en tres notebooks independientes que siguen el fl
 
 ```
 
-
+```
 ---
 
 ## Datos de entrada
