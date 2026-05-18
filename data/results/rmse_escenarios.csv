@@ -1,0 +1,7 @@
+cluster,modelo,RMSE
+0,ganador,2.3628
+1,ganador,1.3007
+2,ganador,1.4194
+0,naive,3.3025
+1,naive,1.8571
+2,naive,3.32
