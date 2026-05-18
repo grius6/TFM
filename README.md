@@ -1,7 +1,7 @@
 # Previsión de la Demanda para Gestión de Inventarios
 
 Trabajo Final de Máster — Máster en Ciencia de Datos (UOC)  
-Autor: Gerard  
+Autor: Gerard Rius Fabregó  
 Curso: 2025–2026
 
 ---
@@ -17,28 +17,40 @@ El proyecto está estructurado en tres notebooks independientes que siguen el fl
 ## Estructura del repositorio
 
 ```
-
+TFM/
+├── data/
+│   ├── processed/
+│   │   └── df_final.parquet
+│   ├── raw/
+│   │   ├── DatosCicloAprovisionamiento.xlsx
+│   │   ├── DatosPrecioMedio.xlsx
+│   │   ├── calendario.csv
+│   │   ├── promociones.csv
+│   │   ├── stock.csv
+│   │   └── venta.csv
+│   └── results/
+│       ├── resultados_modelos.csv
+│       └── rmse_escenarios.csv
+├── html/
+│   ├── 1_TFM_preparación_datos.html
+│   ├── 2_TFM_modelado.html
+│   └── 3_TFM_stock.html
+├── notebooks/
+│   ├── 1_TFM_preparación_datos.ipynb
+│   ├── 2_TFM_modelado.ipynb
+│   └── 3_TFM_stock.ipynb
+├── LICENSE
+├── README.md
+└── requirements.txt
 ```
----
-
-## Datos de entrada
-
-
-
----
-
-## Requisitos
-
-
-
 ---
 
 ## Orden de ejecución
 
 Los notebooks deben ejecutarse en orden secuencial, ya que cada uno consume los ficheros exportados por el anterior.
 
-**1. `1_TFM_preparacion_datos.ipynb`**  
-Carga los datos originales, realiza la limpieza, el tratamiento de outliers, la reconstrucción de ventas en períodos de rotura de stock, el análisis ACF/PACF, el clustering de productos y la ingeniería de características.  
+**1. `1_TFM_preparación_datos.ipynb`**  
+Carga los datos originales de `data/raw/`, realiza la limpieza, el tratamiento de outliers, la reconstrucción de ventas en períodos de rotura de stock, el análisis ACF/PACF, el clustering de productos y la ingeniería de características.  
 Genera: `data/processed/df_final.parquet`
 
 **2. `2_TFM_modelado.ipynb`**  
@@ -46,7 +58,15 @@ Entrena y compara los modelos de previsión: Seasonal Naïve, Holt-Winters, Rand
 Genera: `data/results/resultados_modelos.csv`, `data/results/rmse_escenarios.csv`
 
 **3. `3_TFM_stock.ipynb`**  
-Calcula el stock de seguridad y el coste de mantenimiento para los dos escenarios (Seasonal Naïve vs. modelo ganador) y cuantifica el ahorro económico a nivel de producto y de catálogo.  
+Calcula el stock de seguridad y el coste de mantenimiento para los dos escenarios (Seasonal Naïve vs. modelo ganador) y cuantifica el ahorro económico a nivel de producto y de catálogo.
+
+---
+
+## Requisitos
+
+Python 3.10 o superior. Instalar las dependencias con:
+
+pip install -r requirements.txt
 
 ---
 
